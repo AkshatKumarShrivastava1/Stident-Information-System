@@ -1,0 +1,50 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+        <h2>Edit Student information</h2>
+        <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input name="listing[name]" value="<%=listing.name%>" type="text" class="form-control" requied >
+            <div class="valid-feedback">Name looks good!</div>
+        </div>
+        <div class="mb-3">
+            <label for="enrollment_no" class="form-label">Enrollment no</label>
+            <input name="listing[enrollment_no]" value="<%=listing.enrollment_no%>" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" class="form-control" required><%=listing.description%></textarea>
+            <div class="invalid-feedback">Please enter a short description</div>
+        </div>
+        <div class="mb-3">
+            Original Listing Image<br>
+            <img src="<%= originalImageUrl %>"/>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload new image</label>
+            <input name="listing[image]" type="file" class="form-control">
+        </div>
+        <div class="row">
+        <div class="mb-3 col-md-4">
+            <label for="age" class="form-label">Age</label>
+            <input name="listing[age]" value="<%=listing.age%>" type="number" class="form-control" required>
+            <div class="invalid-feedback">Age should be valid</div>
+        </div>
+        <div class="mb-3 col-md-8">
+            <label for="address" class="form-label">Address</label>
+            <input name="listing[address]" value="<%=listing.address%>" type="text" class="form-control" required>
+            <div class="invalid-feedback">Address should be valid</div>
+        </div>
+    </div>
+        <div class="mb-3">
+            <label for="cgpa" class="form-label">CGPA</label>
+            <input name="listing[cgpa]" value="<%=listing.cgpa%>" type="number" class="form-control" required>
+            <div class="invalid-feedback">Please enter CGPA</div>
+        </div>   
+        <button class="btn btn-dark edit-btn mt-3">Edit</button>
+    </form>
+    </div>
+</div>
+
+    
